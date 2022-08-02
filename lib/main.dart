@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'music_visualization/music_visualization.dart';
+import 'page_wave_transition_animation/wave_transition.dart';
 
 void main() {
-  runApp(const MusicVisualizer());
+  runApp(const WaveTransition());
 }

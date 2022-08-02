@@ -21,7 +21,7 @@ class MusicVisualizer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: List.generate(
               10,
-              (index) => VisualComponent(
+              (index) => _VisualComponent(
                 duration: duration[index % duration.length],
                 color: colors[index % colors.length],
               ),
@@ -33,9 +33,8 @@ class MusicVisualizer extends StatelessWidget {
   }
 }
 
-class VisualComponent extends StatefulWidget {
-  const VisualComponent({
-    super.key,
+class _VisualComponent extends StatefulWidget {
+  const _VisualComponent({
     required this.duration,
     required this.color,
   });
@@ -44,10 +43,10 @@ class VisualComponent extends StatefulWidget {
   final Color color;
 
   @override
-  State<VisualComponent> createState() => _VisualComponentState();
+  State<_VisualComponent> createState() => _VisualComponentState();
 }
 
-class _VisualComponentState extends State<VisualComponent>
+class _VisualComponentState extends State<_VisualComponent>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

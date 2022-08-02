@@ -5,26 +5,27 @@ import 'package:vector_math/vector_math.dart' as vector;
 
 import 'constants.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class LiquidAnimation extends StatelessWidget {
+  const LiquidAnimation({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MyHomePage(title: 'Flutter Canvas Animation'),
+      home: _MyHomePage(title: 'Flutter Canvas Animation'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class _MyHomePage extends StatefulWidget {
+  const _MyHomePage({super.key, required this.title});
   final String title;
 
   @override
-  MyHomePageState createState() => MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+class _MyHomePageState extends State<_MyHomePage>
+    with TickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> animation;
 
@@ -59,10 +60,10 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 top: size.height / 2,
                 left: size.width / 2,
                 child: ClipPath(
-                  clipper: CircleClipper(),
+                  clipper: _CircleClipper(),
                   child: CustomPaint(
                     size: kSize,
-                    painter: WavePainter(
+                    painter: _WavePainter(
                       animationController: animationController,
                       isRightDirection: true,
                     ),
@@ -73,10 +74,10 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 top: size.height / 2,
                 left: size.width / 2,
                 child: ClipPath(
-                  clipper: CircleClipper(),
+                  clipper: _CircleClipper(),
                   child: CustomPaint(
                     size: kSize,
-                    painter: WavePainter(
+                    painter: _WavePainter(
                       animationController: animationController,
                       isRightDirection: false,
                     ),
@@ -88,7 +89,7 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 left: size.width / 2,
                 child: CustomPaint(
                   size: kSize,
-                  painter: FlaskPainter(),
+                  painter: _FlaskPainter(),
                 ),
               ),
               Positioned(
@@ -96,7 +97,7 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 left: size.width / 2,
                 child: CustomPaint(
                   size: kSize,
-                  painter: ReflectionPainter(),
+                  painter: _ReflectionPainter(),
                 ),
               ),
             ],
@@ -107,7 +108,7 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
 }
 
-class ReflectionPainter extends CustomPainter {
+class _ReflectionPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final rect = Rect.fromLTWH(
@@ -140,7 +141,7 @@ class ReflectionPainter extends CustomPainter {
   }
 }
 
-class FlaskPainter extends CustomPainter {
+class _FlaskPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final rect = Rect.fromLTWH(
@@ -183,7 +184,7 @@ class FlaskPainter extends CustomPainter {
   }
 }
 
-class CircleClipper extends CustomClipper<Path> {
+class _CircleClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) => Path()
     ..addOval(
@@ -200,8 +201,8 @@ class CircleClipper extends CustomClipper<Path> {
   }
 }
 
-class WavePainter extends CustomPainter {
-  WavePainter({
+class _WavePainter extends CustomPainter {
+  _WavePainter({
     required this.isRightDirection,
     required this.animationController,
   });
