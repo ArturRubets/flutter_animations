@@ -46,7 +46,7 @@ dart_code_metrics:
  
  rules:
    - avoid-global-state
-   - avoid-late-keyword
+  #  - avoid-late-keyword
    - avoid-non-null-assertion
    - avoid-returning-widgets
    - avoid-unnecessary-setstate
@@ -68,11 +68,11 @@ dart_code_metrics:
    - newline-before-return
    - no-empty-block
    - no-equal-then-else
-   - no-magic-number
+  #  - no-magic-number
    - prefer-conditional-expressions
    - prefer-first
    - prefer-last
-   - prefer-match-file-name
+  #  - prefer-match-file-name
  anti-patterns:
    - long-method
    - long-parameter-list
@@ -81,7 +81,7 @@ linter:
  rules:
    - always_declare_return_types
    - always_put_control_body_on_new_line
-   - always_put_required_named_parameters_first
+  #  - always_put_required_named_parameters_first
    - avoid_annotating_with_dynamic
    - avoid_bool_literals_in_conditional_expressions
    - avoid_catches_without_on_clauses
@@ -146,7 +146,7 @@ linter:
    - prefer_constructors_over_static_methods
    - prefer_final_in_for_each
    - prefer_final_locals
-   - prefer_if_elements_to_conditional_expressions
+  #  - prefer_if_elements_to_conditional_expressions
    - prefer_int_literals
    - prefer_mixin
    - prefer_null_aware_method_calls
