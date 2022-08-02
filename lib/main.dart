@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'liquid_animation/liquid_animation.dart';
+import 'music_visualization/music_visualization.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MusicVisualizer());
 }
