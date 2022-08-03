@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'page_wave_transition_animation/wave_transition.dart';
+import 'circular_progress_indicator/circular_progress_indicator.dart';
 
 void main() {
-  runApp(const WaveTransition());
+  runApp(const CircularProgressIndicatorPage());
 }
