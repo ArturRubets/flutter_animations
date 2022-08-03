@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'circular_progress_indicator/circular_progress_indicator.dart';
+import 'shader_through_buttons_not_completed/app.dart';
 
 void main() {
-  runApp(const CircularProgressIndicatorPage());
+  runApp(const App());
 }
