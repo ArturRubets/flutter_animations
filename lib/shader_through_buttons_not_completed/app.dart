@@ -22,6 +22,7 @@ class App extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
                   ),
+                  // ignore: no-empty-block
                   onPressed: () {},
                   child: const Text(
                     'Button 5',
@@ -32,6 +33,7 @@ class App extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black),
                   ),
+                  // ignore: no-empty-block
                   onPressed: () {},
                   child: const Text(
                     'Button 5',
@@ -42,6 +44,7 @@ class App extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
                   ),
+                  // ignore: no-empty-block
                   onPressed: () {},
                   child: const Text(
                     'Button 5',
@@ -52,6 +55,7 @@ class App extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
                   ),
+                  // ignore: no-empty-block
                   onPressed: () {},
                   child: const Text(
                     'Button 5',

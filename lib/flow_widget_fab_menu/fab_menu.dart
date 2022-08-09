@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 const buttonSize = 80.0;
@@ -9,20 +11,20 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        floatingActionButton: FlowMenu(),
+        floatingActionButton: FlowFabMenu(),
       ),
     );
   }
 }
 
-class FlowMenu extends StatefulWidget {
-  const FlowMenu({super.key});
+class FlowFabMenu extends StatefulWidget {
+  const FlowFabMenu({super.key});
 
   @override
-  State<FlowMenu> createState() => _FlowMenuState();
+  State<FlowFabMenu> createState() => _FlowFabMenuState();
 }
 
-class _FlowMenuState extends State<FlowMenu>
+class _FlowFabMenuState extends State<FlowFabMenu>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -66,10 +68,11 @@ class _FlowMenuState extends State<FlowMenu>
     return Flow(
       delegate: FlowMenuDelegate(_controller),
       children: [
-        Icons.menu,
         Icons.mail,
         Icons.call,
         Icons.notifications,
+        Icons.accessibility,
+        Icons.menu,
       ].map(buildItem).toList(),
     );
   }
@@ -86,18 +89,26 @@ class FlowMenuDelegate extends FlowDelegate {
     final xStart = size.width - buttonSize;
     final yStart = size.height - buttonSize;
 
-    for (var i = context.childCount - 1; i >= 0; i--) {
-      const margin = 8;
-      final width = context.getChildSize(i)?.width;
-      if (width == null) {
-        throw NullThrownError();
-      }
-      final dx = (width + margin) * i;
-      final x = xStart;
-      final y = yStart - dx * _controller.value;
+    for (var i = 0; i < context.childCount; i++) {
+      final isLastItem = i == context.childCount - 1;
+
+      final radius = _controller.value * 180;
+
+      /// 2 из 5 кнопок не нужно считать угол. Первой и последней кнопке,
+      /// у первой кнопки угол ноль радиан, а последняя стоит на месте
+      /// потому что это кнопка меню.
+      final angle = i * (math.pi * 0.5) / (context.childCount - 2);
+
+      final x = xStart - (isLastItem ? 0 : radius * math.cos(angle));
+      final y = yStart - (isLastItem ? 0 : radius * math.sin(angle));
       context.paintChild(
         i,
-        transform: Matrix4.translationValues(x, y, 0),
+        transform: Matrix4.identity()
+          ..translate(x, y)
+          ..translate(buttonSize / 2, buttonSize / 2)
+          ..rotateZ(isLastItem ? 0.0 : 180 * (1 - _controller.value))
+          ..scale(isLastItem ? 1.0 : math.max(_controller.value, 0.5))
+          ..translate(-buttonSize / 2, -buttonSize / 2),
       );
     }
   }

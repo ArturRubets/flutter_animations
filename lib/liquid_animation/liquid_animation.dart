@@ -17,7 +17,7 @@ class LiquidAnimation extends StatelessWidget {
 }
 
 class _MyHomePage extends StatefulWidget {
-  const _MyHomePage({super.key, required this.title});
+  const _MyHomePage({ required this.title});
   final String title;
 
   @override
