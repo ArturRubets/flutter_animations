@@ -17,8 +17,9 @@ class LiquidAnimation extends StatelessWidget {
 }
 
 class _MyHomePage extends StatefulWidget {
-  const _MyHomePage({ required this.title});
   final String title;
+
+  const _MyHomePage({required this.title});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -202,13 +203,13 @@ class _CircleClipper extends CustomClipper<Path> {
 }
 
 class _WavePainter extends CustomPainter {
+  AnimationController animationController;
+  final bool isRightDirection;
+
   _WavePainter({
     required this.isRightDirection,
     required this.animationController,
   });
-
-  AnimationController animationController;
-  final bool isRightDirection;
 
   @override
   void paint(Canvas canvas, Size size) {

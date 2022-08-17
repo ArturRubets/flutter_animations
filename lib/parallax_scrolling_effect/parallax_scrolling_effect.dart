@@ -44,6 +44,7 @@ class _Item extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
       child: Flow(
         delegate: ParallaxFlowDelegate(
+          // ignore: avoid-non-null-assertion
           scrollable: Scrollable.of(context)!,
           itemContext: context,
           keyImage: keyImage,
@@ -86,9 +87,11 @@ class ParallaxFlowDelegate extends FlowDelegate {
     );
 
     final viewportDimension = scrollable.position.viewportDimension;
+    // ignore: avoid-non-null-assertion
     final scrollFraction = (itemOffset!.dy / viewportDimension).clamp(0, 1);
 
     final verticalAlignment = Alignment(0, scrollFraction * 2 - 1);
+    // ignore: cast_nullable_to_non_nullable
     final imageBox = keyImage.currentContext?.findRenderObject() as RenderBox;
     final childRect = verticalAlignment.inscribe(
       imageBox.size,
@@ -97,7 +100,7 @@ class ParallaxFlowDelegate extends FlowDelegate {
     context.paintChild(
       0,
       transform: Transform.translate(
-        offset: Offset(0, 0),
+        offset: Offset(0, childRect.top),
       ).transform,
     );
   }

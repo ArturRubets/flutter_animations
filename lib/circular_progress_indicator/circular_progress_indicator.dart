@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CircularProgressIndicatorPage extends StatelessWidget {
-  const CircularProgressIndicatorPage({super.key});
-
   static const size = 200.0;
+
+  const CircularProgressIndicatorPage({super.key});
 
   @override
   Widget build(BuildContext context) {

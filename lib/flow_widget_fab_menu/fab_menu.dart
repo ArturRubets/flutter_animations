@@ -79,9 +79,9 @@ class _FlowFabMenuState extends State<FlowFabMenu>
 }
 
 class FlowMenuDelegate extends FlowDelegate {
-  FlowMenuDelegate(this._controller) : super(repaint: _controller);
-
   final Animation<double> _controller;
+
+  FlowMenuDelegate(this._controller) : super(repaint: _controller);
 
   @override
   void paintChildren(FlowPaintingContext context) {

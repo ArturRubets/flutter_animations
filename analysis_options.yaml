@@ -47,7 +47,8 @@ dart_code_metrics:
   rules:
     - avoid-global-state
     # - avoid-late-keyword
-    - avoid-non-null-assertion
+    - avoid-non-null-assertion:
+        severity: performance
     - avoid-returning-widgets
     - avoid-unnecessary-setstate
     - avoid-unnecessary-type-assertions

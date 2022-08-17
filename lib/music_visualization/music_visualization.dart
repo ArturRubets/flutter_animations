@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MusicVisualizer extends StatelessWidget {
-  const MusicVisualizer({super.key});
-
   static const colors = [
     Colors.blueAccent,
     Colors.greenAccent,
@@ -10,6 +8,8 @@ class MusicVisualizer extends StatelessWidget {
     Colors.yellowAccent,
   ];
   static const duration = [900, 700, 600, 800, 500];
+
+  const MusicVisualizer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +34,13 @@ class MusicVisualizer extends StatelessWidget {
 }
 
 class _VisualComponent extends StatefulWidget {
+  final int duration;
+  final Color color;
+
   const _VisualComponent({
     required this.duration,
     required this.color,
   });
-
-  final int duration;
-  final Color color;
 
   @override
   State<_VisualComponent> createState() => _VisualComponentState();
@@ -80,7 +80,7 @@ class _VisualComponentState extends State<_VisualComponent>
         width: 10,
         decoration: BoxDecoration(
           color: widget.color,
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
         ),
         height: _animation.value,
       ),
