@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'flow_widget_fab_menu/fab_menu.dart';
+import 'parallax_scrolling_effect/parallax_scrolling_effect.dart';
 
 void main() {
   runApp(const App());
